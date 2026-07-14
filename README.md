@@ -109,11 +109,7 @@ Both groups show a monotonic dose-response. The `ad` group is ahead of `psa` onl
 
 Histogram with log-scaled y-axis. Skew ≈ 7.4. Almost all mass sits near zero; the tail extends past 2000 with single-user bins. This motivates both the binning used for descriptives and the `log1p` transform used in the GLM.
 
-### Predicted conversion heatmap (hour × day)
-
-Heatmap of `emmeans` predictions pivoted into a `day × hour` grid. Unlike the raw hour-of-day chart, this controls for `log_total_ads` and `test_group`, so the highlighted cells reflect timing effects net of exposure and group.
-
-## Interpretation
+## Possible Interpretation
 
 - The `ad` group has higher conversion than `psa` in aggregate, but the difference is not uniform. It is clear on Mon–Wed and Fri–Sat, and unclear on Thu and Sun.
 - Exposure is a strong predictor of conversion. Both groups follow the same shape, so a large part of the raw group difference is attributable to exposure rather than to the treatment.
