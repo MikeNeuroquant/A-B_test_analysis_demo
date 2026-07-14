@@ -104,9 +104,13 @@ Line-plus-bar chart. Line is conversion rate by `ads_bin`; bars are user counts.
 
 ### Dose-response by group with 95% CIs
 
+![Conversion by exposure bin, ad vs psa](assets/Conversion_by_exposure_bin_ad_vs_psa.png)
+
 Grouped bar chart of conversion rate per `ads_bin`, split by group, with bootstrap CIs. Confirms the pattern holds when psa is included as a benchmark: the ad group's rate rises with exposure while psa stays roughly flat, and the gap widens with more impressions.
 
 ### Distribution of `total_ads`
+
+![Distribution of total_ads](assets/distribution.png)
 
 Histogram with log-scaled y-axis. Justifies the log transform and the binning: a hard mode near zero and a long thin tail extending past 2000.
 
