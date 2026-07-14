@@ -53,7 +53,6 @@ The allocation is deliberately unbalanced: ~96% of users are in `ad`, ~4% in `ps
 4. Two-proportion z-test comparing `ad` vs `psa` on the aggregate conversion rate.
 5. Descriptive plots: hour of day, day × group, dose-response by exposure bin.
 6. Logistic GLM in R via `rpy2`: `converted ~ log_total_ads + test_group + most_ads_hour * most_ads_day`, family binomial. Type-III `Anova`, `emmeans` marginal means, Tukey-adjusted pairwise contrasts filtered at `p < 0.05`.
-7. Heatmap of predicted conversion rate from the `emmeans` output, arranged as `day × hour`.
 
 ## Statistical analysis
 
