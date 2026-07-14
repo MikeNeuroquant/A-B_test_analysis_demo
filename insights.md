@@ -10,7 +10,7 @@ The Kaggle `marketing_AB.csv` file contains one row per user with:
 - `most_ads_day` — day of week with peak exposure.
 - `most_ads_hour` — hour with peak exposure (0–23).
 
-Groups are imbalanced by design: ~96% `ad`, ~4% `psa`. `total_ads` is strongly right-skewed, so it's binned into 7 categories (`1-5`, `6-10`, ..., `200+`) and also log-transformed (`log1p`) before entering the model.
+Groups are imbalanced by design: ~96% `ad`, ~4% `psa`. `total_ads` is strongly right-skewed (max 2065), so it's binned into 7 categories (`1-5`, `6-10`, ..., `200+`) and also log-transformed (`log1p`) before entering the model.
 
 ## Workflow
 
@@ -53,16 +53,25 @@ Expected pattern from the omnibus tests:
 
 ### Conversion rate by hour of day
 
+![Conversion rate by hour of day](assets/conversion_by_hour.png)
+
 Bar chart, one bar per hour, 0–23, with hour 16 highlighted. Shows a clear diurnal pattern: conversion climbs through the morning, peaks in mid-to-late afternoon (16:00), and drops overnight. Purely descriptive — collapses over group and day.
 
 ### Conversion rate by day of week × group
+
+![Conversion rate by day of week and group](assets/conversion_by_day_group.png)
 
 Grouped bar chart, `ad` vs `psa` per day. Two things to read: the day-level pattern (higher on Mondays/Tuesdays) and the group gap within each day. The gap is visible on every day, consistent with a treatment effect that isn't confined to one part of the week.
 
 ### Dose-response, ad group only
 
+![Dose-response: conversion rate by exposure level](assets/dose_response.png)
+
 Line-plus-bar chart. Line is conversion rate by `ads_bin`; bars are user counts. The rate rises with exposure but the user count crashes: most users fall in the low-exposure bins, and the high-exposure bins have small samples. Reads as a strong monotonic dose-response with wide uncertainty at the tail.
 
+### Dose-response by group with 95% CIs
+
+Grouped bar chart of conversion rate per `ads_bin`, split by group, with bootstrap CIs. Confirms the pattern holds when psa is included as a benchmark: the ad group's rate rises with exposure while psa stays roughly flat, and the gap widens with more impressions.
 
 ### Distribution of `total_ads`
 
