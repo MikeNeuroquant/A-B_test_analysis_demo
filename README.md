@@ -1,4 +1,4 @@
-# Marketing A/B Test — Conversion Analysis
+# Marketing A/B Test | Conversion Analysis
 
 A/B test analysis on the Kaggle marketing dataset (`faviovaz/marketing-ab-testing`). Users are split between an `ad` treatment and a `psa` control; the analysis quantifies the lift in conversion rate and checks how exposure volume and timing affect it.
 
